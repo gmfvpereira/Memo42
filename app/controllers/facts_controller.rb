@@ -33,27 +33,21 @@ class FactsController < ApplicationController
     @fact = Fact.find(params[:id])
   end
 
-  # POST /facts
-  # POST /facts.json
   def create
     @fact = Fact.new(params[:fact])
-
-    respond_to do |format|
-      if @fact.save
-        format.html { redirect_to facts_path, notice: 'Fato criado com sucesso.' }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @fact.errors, status: :unprocessable_entity }
-      end
+    if @fact.save
+      redirect_to facts_path, notice: 'Fato criado com sucesso.'
+    else
+      redirect_to facts_path, alert: 'Não pode ser branco.'
     end
   end
 
   def update
     @fact = Fact.find(params[:id])
     if @fact.update_attributes(params[:fact])
-      format.html { redirect_to @fact, notice: 'Fact was successfully updated.' }
+      redirect_to facts_path, notice: 'Fato atualizado!.'
     else
-      format.html { render action: "edit" }
+      redirect_to facts_path, error: @fact.errors
     end
   end
 
