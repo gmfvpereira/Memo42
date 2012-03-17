@@ -1,4 +1,4 @@
 class Fact < ActiveRecord::Base
-  attr_accessor :description
+  attr_accessible :description
   validates :description, :presence => true
 end
