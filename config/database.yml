@@ -1,0 +1,20 @@
+common: &common
+  encoding: utf8
+  adapter: postgresql
+  username: postgres
+  password: senha
+  pool: 5
+  host: localhost
+  port: 5432
+
+development:
+  <<: *common
+  database: memo42_development
+
+test:
+  <<: *common
+  database: memo42_test
+
+production:
+  <<: *common
+  database: memo42_production

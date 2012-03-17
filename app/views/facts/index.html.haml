@@ -1,0 +1,22 @@
+- if notice
+  .alert.alert-success
+    %a.close{"data-dismiss" => "alert"} ×
+    = notice
+
+- if alert
+  .alert.alert-error
+    %a.close{"data-dismiss" => "alert"} ×
+    = alert
+
+= form_for @fact, :html => { :class => 'form-horizontal' } do |f|
+  = f.text_area :description, :class => 'text_area', :rows => 5, :id => 'new_fact'
+  = f.submit nil, :class => 'btn btn-success', :value => 'Criar fato!'
+
+%table.table.table-striped
+  %tbody
+    - @facts.each do |fact|
+      %tr
+        %td= fact.description
+        %td{:width => '100px;'}
+          = link_to 'Editar', edit_fact_path(fact), :class => 'btn btn-mini'
+          = link_to 'Apagar', fact_path(fact), :method => :delete, :confirm => 'Deseja REALMENTE apagar esse fato?', :class => 'btn btn-mini btn-danger'

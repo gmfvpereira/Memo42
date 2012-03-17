@@ -1,0 +1,18 @@
+%h1 Facts
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
+      %th Description
+      %th Created at
+      %th Actions
+  %tbody
+    - @facts.each do |fact|
+      %tr
+        %td= fact.id
+        %td= link_to fact.description, fact_path(fact)
+        %td= fact.created_at
+        %td
+          = link_to 'Edit', edit_fact_path(fact), :class => 'btn btn-mini'
+          = link_to 'Destroy', fact_path(fact), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger'
+= link_to 'New', new_fact_path, :class => 'btn btn-primary'
