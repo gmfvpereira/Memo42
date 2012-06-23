@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 class FactsController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def index
     @fact = Fact.new
     @facts = Fact.all
@@ -36,7 +38,7 @@ class FactsController < ApplicationController
   def create
     @fact = Fact.new(params[:fact])
     if @fact.save
-      redirect_to facts_path, notice: 'Fato criado com sucesso.'
+      redirect_to facts_path, notice: 'Ideia criada com sucesso.'
     else
       redirect_to facts_path, alert: 'Não pode ser branco.'
     end
@@ -45,7 +47,7 @@ class FactsController < ApplicationController
   def update
     @fact = Fact.find(params[:id])
     if @fact.update_attributes(params[:fact])
-      redirect_to facts_path, notice: 'Fato atualizado!.'
+      redirect_to facts_path, notice: 'Ideia atualizado!.'
     else
       redirect_to facts_path, error: @fact.errors
     end
@@ -54,7 +56,7 @@ class FactsController < ApplicationController
   def destroy
     @fact = Fact.find(params[:id])
     @fact.destroy
-    redirect_to facts_path, alert: 'Fato apagado! Mas lembre-se que apagar sua memória pode ser perigoso! =)'
+    redirect_to facts_path, alert: 'Ideia apagado! Mas lembre-se que em um brainstorm tudo é válido!'
   end
 
 end

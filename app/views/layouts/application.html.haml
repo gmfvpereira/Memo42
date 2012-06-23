@@ -19,13 +19,11 @@
           %a.brand{:href => "#"} Memo42
           .nav-collapse
             %ul.nav
-              %li= link_to "Fatos", facts_path
-              %li= link_to "Login"
+              - if user_signed_in?
+                %li= link_to "Sair", destroy_user_session_path, :method => :delete
+              - else
+                %li= link_to "Login", new_user_session_path
     .container
-      %span.notice
-        = notice
-      %span.alert
-        = alert
       .row
         .span9
           = yield

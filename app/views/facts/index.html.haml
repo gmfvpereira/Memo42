@@ -10,7 +10,7 @@
 
 = form_for @fact, :html => { :class => 'form-horizontal' } do |f|
   = f.text_area :description, :class => 'text_area', :rows => 5, :id => 'new_fact'
-  = f.submit nil, :class => 'btn btn-success', :value => 'Criar fato!'
+  = f.submit nil, :class => 'btn btn-success', :value => 'Salvar ideia'
 
 %table.table.table-striped
   %tbody
@@ -19,4 +19,4 @@
         %td= fact.description
         %td{:width => '100px;'}
           = link_to 'Editar', edit_fact_path(fact), :class => 'btn btn-mini'
-          = link_to 'Apagar', fact_path(fact), :method => :delete, :confirm => 'Deseja REALMENTE apagar esse fato?', :class => 'btn btn-mini btn-danger'
+          = link_to 'Apagar', fact_path(fact), :method => :delete, :confirm => 'Deseja REALMENTE apagar essa ideia?', :class => 'btn btn-mini btn-danger'
