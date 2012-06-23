@@ -36,3 +36,6 @@ group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
 end
+
+gem 'devise'
+gem "omniauth-facebook"

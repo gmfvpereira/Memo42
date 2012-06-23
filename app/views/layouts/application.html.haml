@@ -22,6 +22,10 @@
               %li= link_to "Fatos", facts_path
               %li= link_to "Login"
     .container
+      %span.notice
+        = notice
+      %span.alert
+        = alert
       .row
         .span9
           = yield
