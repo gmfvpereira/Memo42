@@ -38,6 +38,6 @@ end
 
 gem 'devise'
 gem "omniauth-facebook"
-gem 'activeadmin'
 gem 'sass-rails'
+gem 'activeadmin'
 gem "meta_search", '>= 1.1.0.pre'
