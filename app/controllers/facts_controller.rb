@@ -5,7 +5,11 @@ class FactsController < ApplicationController
 
   def index
     @fact = Fact.new
-    @facts = Fact.all
+    if current_user.admin?
+      @facts = Fact.all
+    else
+      @facts = []
+    end
   end
 
   # GET /facts/1
