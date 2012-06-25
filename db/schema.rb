@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(:version => 20120624053252) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "likes"
   end
 
   create_table "users", :force => true do |t|
