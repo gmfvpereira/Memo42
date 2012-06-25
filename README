@@ -1,1 +1,13 @@
-Hello world.
+Memo42 é uma ferramenta de brainstorm contínuo cooperativo. Adicione todas as suas ideias nesse grande pool e compartilhe com quem quiser.
+
+Possui login com facebook e registro normal através do devise.
+Possui apenas um 'role' de usuário chamado admin. Esse role poderá visualizar as ideias de todo mundo.
+Usuários que não são admin só podem criar ideias.
+
+TODO:
+1- Criar API para integração com android
+2- Usuários comuns devem poder ver suas ideias.
+3- Mostrar dono da ideia.
+4- Colocar um botão estilo 'like'.
+5- Integrar tabela do activeadmin com a tabela de usuários do devise.
+6- Mudar nome de 'fact' para 'idea'. =]
