@@ -4,9 +4,10 @@ class FactsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    puts current_user.inspect
     @fact = Fact.new
     if current_user.admin?
-      @facts = Fact.all
+      @facts = Fact.all(:order => "created_at DESC")
     else
       @facts = []
     end

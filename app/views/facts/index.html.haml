@@ -13,10 +13,14 @@
   = f.submit nil, :class => 'btn btn-success', :value => 'Salvar ideia'
 
 %table.table.table-striped
-  %tbody
-    - @facts.each do |fact|
-      %tr
-        %td= fact.description
-        %td{:width => '100px;'}
-          = link_to 'Editar', edit_fact_path(fact), :class => 'btn btn-mini'
-          = link_to 'Apagar', fact_path(fact), :method => :delete, :confirm => 'Deseja REALMENTE apagar essa ideia?', :class => 'btn btn-mini btn-danger'
+  - @facts.each do |fact|
+    %tr
+      - if current_user.last_sign_in_at < fact.created_at
+        %td{:width => '30px;'}= image_tag "new_idea.jpg", :width => "25px"
+      - else
+        %td{:width => '30px;'}
+
+      %td= fact.description
+      %td{:width => '110px;'}
+        = link_to 'Editar', edit_fact_path(fact), :class => 'btn btn-mini'
+        = link_to 'Apagar', fact_path(fact), :method => :delete, :confirm => 'Deseja REALMENTE apagar essa ideia?', :class => 'btn btn-mini btn-danger'
