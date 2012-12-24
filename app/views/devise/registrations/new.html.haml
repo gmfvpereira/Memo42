@@ -1,0 +1,30 @@
+.row.margin50
+
+  .span6.offset3
+
+    - unless flash[:alert].nil? or flash[:alert].empty?
+      .alert
+        = flash[:alert]
+
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "well form-horizontal"}) do |f|
+      .control-group
+        = f.label :email, :class => 'control-label'
+        .controls
+          = f.email_field :email
+      .control-group
+        = f.label :password, :class => 'control-label'
+        .controls
+          = f.password_field :password
+      .control-group
+        = f.label :password_confirmation, :class => 'control-label'
+        .controls
+          = f.password_field :password_confirmation
+
+
+      .form-actions.no_margin_bottom
+        = f.submit "Registrar", :class => 'btn btn-primary'
+
+
+
+
+
