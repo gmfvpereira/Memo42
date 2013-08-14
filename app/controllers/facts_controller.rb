@@ -52,7 +52,7 @@ class FactsController < ApplicationController
   def update
     @fact = Fact.find(params[:id])
     if @fact.update_attributes(params[:fact])
-      redirect_to facts_path, notice: 'Ideia atualizado!.'
+      redirect_to facts_path, notice: 'Ideia atualizada!.'
     else
       redirect_to facts_path, error: @fact.errors
     end
@@ -61,7 +61,7 @@ class FactsController < ApplicationController
   def destroy
     @fact = Fact.find(params[:id])
     @fact.destroy
-    redirect_to facts_path, alert: 'Ideia apagado! Mas lembre-se que em um brainstorm tudo é válido!'
+    redirect_to facts_path, alert: 'Ideia apagada! Mas lembre-se que em um brainstorm tudo é válido!'
   end
 
 end

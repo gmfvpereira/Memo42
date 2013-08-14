@@ -8,11 +8,11 @@
 
     = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "well form-horizontal"}) do |f|
       .control-group
-        = f.label :email, :class => 'control-label'
+        = f.label :email, 'Email', :class => 'control-label'
         .controls
           = f.email_field :email
       .control-group
-        = f.label :password, :class => 'control-label'
+        = f.label :password, 'Senha', :class => 'control-label'
         .controls
           = f.password_field :password
 
@@ -21,7 +21,7 @@
           .controls
             %label{:class => "checkbox"}
               = f.check_box :remember_me
-              = resource.class.human_attribute_name(:remember_me)
+              Lembrar de mim
       .form-actions.no_margin_bottom
         = f.submit "Entrar", :class => 'btn btn-primary'
         = render "devise/shared/links"
